@@ -1,0 +1,10 @@
+<form (submit)="submitLogin()">
+
+  <input name="email" type="email" placeholder="email" [(ngModel)]="email">
+  <input name="password" type="password" placeholder="password" [(ngModel)]="password">
+
+  <div>{{ message }}</div>
+
+  <button>Log in</button>
+
+</form>
