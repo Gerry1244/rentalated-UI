@@ -12,8 +12,28 @@ export class ApartmentDataService {
 
   getActiveListings(): Observable<Apartment[]> {
     return this.http
-      .get('http://localhost:4567/api/apartments')
+      .get('http://localhost:4567/api/apartments', { withCredentials: true })
       .map(response => response.json());
   }
+
+  getMyListings(): Observable<Apartment[]> {  
+    return this.http
+      .get('http://localhost:4567/api/apartments/mine', { withCredentials: true })
+      .map(response => response.json());
+  }
+
+    changeStatus (apartment: Apartment): Observable<Apartment>{
+ 
+   if (apartment.is_active) {
+     return this.http
+     .post('http://localhost:4200/api/apartments/'+apartment.id+'/activations', {}, { withCredentials: true })
+     .map(response => response.json());
+   } else {
+     return this.http
+     .post('http://localhost:4200/api/apartments/'+apartment.id+'/deactivations', {}, { withCredentials: true })
+     .map(response => response.json());
+   }
+ }
+
 
 }

@@ -2,7 +2,6 @@
 <br>
 <div>{{ apartment.address }}</div>
 <div>{{ apartment.city }}, {{ apartment.state }}, {{ apartment.zip_code }}</div>
-<div>  
 
 <ul>
  <li><b>Rent: </b>{{ apartment.rent }}</li>
@@ -10,3 +9,18 @@
  <li><b>Bathroom: </b>{{ apartment.number_of_bathrooms }}</li>
  <li><b>Footage: </b>{{ apartment.square_footage }}</li>
 </ul>
+
+<form (submit)="activateApartment()">
+    <button *ngIf="!apartment.is_active">Activate</button>
+</form>
+<form (submit)="deactivateApartment()">
+    <button *ngIf="apartment.is_active">Deactivate</button>
+</form>
+<br>
+<form (submit)="likeApartment()">
+    <button>Like</button>
+</form>
+ 
+
+
+

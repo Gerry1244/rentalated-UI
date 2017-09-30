@@ -13,11 +13,15 @@ import { ApartmentDetailComponent } from './apartment-detail/apartment-detail.co
 import { LoginComponent } from './login/login.component';
 import { SessionDataService } from "./session-data/session-data.service";
 import { MyListingsComponent } from './my-listings/my-listings.component';
+import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 
 const routes: Route[] = [
   { path: 'login', component: LoginComponent },
   { path: '',     component: ApartmentListingsComponent },
+  { path: 'apartments/mine',     component: MyListingsComponent },
+  {path: 'users/signup', component: UserSignUpComponent }
 ];
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ const routes: Route[] = [
     ApartmentListingsComponent,
     ApartmentDetailComponent,
     LoginComponent,
-    MyListingsComponent
+    MyListingsComponent,
+    UserSignUpComponent
   ],
   imports: [
     BrowserModule,

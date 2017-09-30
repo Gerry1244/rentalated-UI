@@ -1,3 +1,20 @@
-<p>
-  my-listings works!
-</p>
+
+<h1>My Listings ...</h1>
+<h2>Active</h2>
+<div  *ngFor="let apartment of selectApartments(true)">
+    <a (click)="showDetails(apartment)">{{ apartment.address }}</a>
+</div>
+<h2>Inactive</h2>
+<div  *ngFor="let apartment of selectApartments(false)">
+    <a (click)="showDetails(apartment)">{{ apartment.address }}</a>
+</div>
+<br>
+<br>
+<button *ngIf="selectedMyApartment"  
+(click)="hideStuff()">Hide</button>
+<button *ngIf="selectedMyApartment" (click)="changeStatus()">{{ status() }}
+</button>
+<app-apartment-detail 
+*ngIf="selectedMyApartment"
+[apartment] = "selectedMyApartment">
+</app-apartment-detail>

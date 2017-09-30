@@ -12,11 +12,12 @@ export class ApartmentListingsComponent implements OnInit {
   apartments: Apartment[]
   error: string;
   selectedApartment: Apartment;
-
+  
 
   constructor(private data: ApartmentDataService) { }
 
-  hideStuff() {
+  hide() {
+    console.log("new message");
     this.selectedApartment = null;
   }
 
@@ -29,7 +30,7 @@ export class ApartmentListingsComponent implements OnInit {
       .getActiveListings()
       .subscribe(
         apartments=> this.apartments = apartments,
-        () => this.error = 'Could not load apartment data'
+        () => this.error = 'Could not load apartment data' 
       );
   }
 
