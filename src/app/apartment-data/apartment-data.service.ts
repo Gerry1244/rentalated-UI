@@ -34,6 +34,7 @@ export class ApartmentDataService {
      .map(response => response.json());
    }
  }
+ 
 
 
 }

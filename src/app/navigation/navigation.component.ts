@@ -27,7 +27,6 @@ export class NavigationComponent implements OnInit {
     this.service
       .userChanged
       .subscribe(user => this.currentUser = user);
-    this.router.navigate(['/'])
   };
 
 }

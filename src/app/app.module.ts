@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SessionDataService } from "./session-data/session-data.service";
 import { MyListingsComponent } from './my-listings/my-listings.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
+import { ApartmentDataComponent } from './apartment-data/apartment-data.component';
 
 const routes: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -31,7 +32,8 @@ const routes: Route[] = [
     ApartmentDetailComponent,
     LoginComponent,
     MyListingsComponent,
-    UserSignUpComponent
+    UserSignUpComponent,
+    ApartmentDataComponent
   ],
   imports: [
     BrowserModule,
