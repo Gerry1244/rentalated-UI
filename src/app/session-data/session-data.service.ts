@@ -19,29 +19,25 @@ export class SessionDataService {
     this.userChanged = new Subject<User>();
   }
 
+  getCurrentUser(): User{
+    return this.currentUser;
+  }
+
   login(email: string, password: string): Observable<User> {
     const payload = { email, password };
     return this.http
       .post(this.baseUrl, payload, this.options)
-      .map(response => response.status === 201 ? response.json() : null)
+      .map(response => response.status === 201 ? response.json() : null)  //ternary operator (this is an if/else statement--also there is an implicit return happening here)
       .do(user => this.userChanged.next(user))
-    .do (user => this.currentUser = (user));
-}
+      .do(user => this.currentUser = user);
 
-
-  logout(): Observable<User> {
-    return this.http
-      .delete(`${this.baseUrl}/mine`)
-      .map(response => null)  //TODO: come back and finish the failure
-      .do(user => this.userChanged.next(user));
   }
 
-  getUser(): Observable<User> {
-    return this.http.get
-    (this.baseUrl)
-    .map(response => response.json())
-      .do(currentUser => this.currentUser = currentUser);
-
+  logout(): Observable<User>{
+    return this.http.delete(`${this.baseUrl}/mine`, { withCredentials: true })
+    .map(response => null) //to do: finish the failure
+    .do(user => this.userChanged.next(user))  //broadcasts that something happened
+    .do(() => this.currentUser = null);
   }
 }
  

@@ -14,6 +14,7 @@
 (click)="hideStuff()">Hide</button>
 <button *ngIf="selectedMyApartment" (click)="changeStatus()">{{ status() }}
 </button>
+
 <app-apartment-detail 
 *ngIf="selectedMyApartment"
 [apartment] = "selectedMyApartment">

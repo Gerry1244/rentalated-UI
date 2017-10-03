@@ -1,3 +1,11 @@
-<p>
-  user-sign-up works!
-</p>
+<form (submit)="submitSignup()">
+  <input type="email" required name="email" placeholder="Enter email">
+  <br>
+  <input type="password" required name="password" placeholder="Your password">
+  <br>
+  <input type="text" required name="last_name" placeholder="Last Name">
+  <br>
+  <input type="text" required name="first_name" placeholder="First Name">
+  <br>
+  <button (click)="submitSignup()">Sign up</button>
+</form>
